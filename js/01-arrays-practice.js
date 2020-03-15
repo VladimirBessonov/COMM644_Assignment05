@@ -49,8 +49,37 @@ for (const item in capitalizedMovies) {
 
 //STEP 8
 console.log(`********************** STEP 8 *********************************`)
+let step8;
 movies = [...favMovies, 'Frida', 'evil wears Prada']
 let leastFavMovies = ['Spaceballs','CIAŁO', 'Terminator: Dark Fate']
+// let htmlFavMovies = document.createElement("p")
+let htmlFavMovies = ''
+// let htmlLeastFavMovies = document.createElement("p")
+let htmlLeastFavMovies = ''
+
+// movies.forEach( (item) => {
+//     htmlFavMovies += item + "\n"
+// })
+for (let item in movies) {
+    // let newlement = document.createTextNode(movies[item] + "<br>")
+    // htmlFavMovies.appendChild(newlement)
+    htmlFavMovies += movies[item] + "<br>"
+}
+
+for (let item in leastFavMovies) {
+    htmlLeastFavMovies += leastFavMovies[item] + "<br>"
+}
+
+// console.log(htmlFavMovies);
+// leastFavMovies.forEach( (item) => {
+//     htmlLeastFavMovies += item + "\n"
+// })
+
+step8 = `<h3>Movies I like:</h3> <br> ${htmlFavMovies}  <h3>Movies I regret to watching:</h3> <br> ${htmlLeastFavMovies}`
+console.log(step8)
+
+
+
 
 //STEP 9
 
@@ -76,4 +105,5 @@ let leastFavMovies = ['Spaceballs','CIAŁO', 'Terminator: Dark Fate']
 
 //STEP 20
 
-window.document.write(step1 + "\n" ,step2 + "\n", step3 + "\n", step4 + "\n", step5 + "\n", step6 + "\n", step7 + "\n")
+window.document.write(step1 + "\n\n" ,step2 + "\n\n", step3 + "\n\n", step4 + "\n\n", step5 + "\n\n", step6 + "\n\n",
+    step7 + "\n\n", step8 + "\n\n")
