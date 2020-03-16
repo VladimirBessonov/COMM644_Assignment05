@@ -1,4 +1,17 @@
+// import Employee from "./Employee.js";
+// import Employee from 'js/Employee';
+// import {sayHi} from './Employee.js';
+
+function divider(step) {
+    if (step) {return `<h3> *********************** STEP ${step} *************************** </h3> <br>`}
+    else {
+        return `<h3> ********************************************************** </h3> <br>`
+    }
+}
+
+
 //STEP 1
+console.log(`********************** STEP 1 *********************************`)
 const favMovies =['Limitless', 'The Shawshank Redemption', 'The Barber of Siberia', 'Terminator', 'Seventeen Moments of Spring' ]
 console.log(favMovies[1])
 let step1 = favMovies[1]
@@ -75,28 +88,124 @@ for (let item in leastFavMovies) {
 //     htmlLeastFavMovies += item + "\n"
 // })
 
-step8 = `<h3>Movies I like:</h3> <br> ${htmlFavMovies}  <h3>Movies I regret to watching:</h3> <br> ${htmlLeastFavMovies}`
+step8 = `<h3>Movies I like:</h3> <br> ${htmlFavMovies}  <h3>Movies I regret watching:</h3> <br> ${htmlLeastFavMovies}  <br> `
 console.log(step8)
 
 
-
-
 //STEP 9
+console.log(`********************** STEP 9 *********************************`)
+movies = [...favMovies, 'Frida', 'evil wears Prada']
+leastFavMovies = ['Spaceballs','CIAŁO', 'Terminator: Dark Fate']
+let capitalizedFavMovies = movies.map( (item) => { return item.toUpperCase()})
+let capitalizedLeastFavMovies = leastFavMovies.map( (item) => { return item.toUpperCase()})
+let step9;
+step9 = capitalizedFavMovies.concat(capitalizedLeastFavMovies).sort()
+
+console.log(step9);
 
 //STEP 10
-
+console.log(`********************** STEP 10 *********************************`)
+let step10;
+step10 = step9.pop()
+console.log(step10);
 //STEP 11
+console.log(`********************** STEP 11 *********************************`)
+let step11;
+step11 = step9.shift()
+console.log(step11);
 
 //STEP 12
+console.log(`********************** STEP 12 *********************************`)
+let step12Movies =[];
+step12Movies = [...step9];
+let notLikedMoviesIndexes = [];
+let newLikedMovies =[];
+['Braking Bad','Ford vs Ferrari', 'Fast&Furious'].map(item => {
+    newLikedMovies.push(item.toUpperCase())
+})
+console.log(newLikedMovies)
+for (let item of capitalizedLeastFavMovies) {
+    let index = step9.indexOf(item)
+    if (index !== -1) {
+        notLikedMoviesIndexes.push(index)
+    }
+}
+console.log('initial array',step12Movies);
+console.log('indexes if not liked movies',notLikedMoviesIndexes)
+notLikedMoviesIndexes.map( (index) => {
+    if (newLikedMovies.length !== 0) {
+        step12Movies[index] = newLikedMovies.shift();
+    }
+})
+console.log('replaced',step12Movies);
+let step12;
+step12 = step12Movies
 
 //STEP 13
+console.log(`********************** STEP 13 *********************************`)
+let employee1, employee2, employee3;
+employee1 = [];
+employee2 = [];
+employee3 = [];
+employee1["name"] = 'Vasya'
+employee1["employed"] = true
+employee1["employeeid"] = 1000;
+employee1.title = 'engineer'
+employee1.department = 'automation'
+employee2["name"] = 'Dima'
+employee2["employed"] = true
+employee2["employeeid"] = 2000
+employee2.title = 'manager'
+employee2.department = 'AC Protection'
+let employees;
+employees = [employee1, employee2]
+let step13;
+step13 = employees[1].name
+console.log(step13)
 
 //STEP 14
+console.log(`********************** STEP 14 *********************************`)
+let employeesNames = [];
+employees.forEach( value => employeesNames.push(value.name) );
+let step14;
+step14 = employeesNames
+console.log(step14);
 
 //STEP 15
+console.log(`********************** STEP 15 *********************************`)
+let step15 = [];
+let arr = [];
+employee3["name"] = 'Fedor'
+employee3["employed"] = false
+employee3["employeeid"] = 3000
+employee3.title = 'engineer'
+employee3.department = 'DC Protection'
+employees.push(employee3)
+
+for (let item of employees) {
+    console.log(item)
+    if (item.employed === true) {
+        arr.push(item)
+    }
+}
+
+for (let item of arr) {
+    for (let i in item) {
+        step15.push(`${i}: ${item[i]}`)
+    }
+    step15.push('***********')
+}
+
+console.log(step15)
 
 //STEP 16
-
+console.log(`********************** STEP 16 *********************************`)
+let favoriteMoviesRate = [["Limitless", 5], ["Terminator", 2], ["Wallstreet never sleeps", 4], ["P.S. I love you", 3], ["Gladiator", 1]];
+// for (let item in favoriteMoviesRate) {
+// //
+// // }
+//
+// let filtered = favoriteMoviesRate.filter
 //STEP 17
 
 //STEP 18
@@ -105,5 +214,15 @@ console.log(step8)
 
 //STEP 20
 
-window.document.write(step1 + "\n\n" ,step2 + "\n\n", step3 + "\n\n", step4 + "\n\n", step5 + "\n\n", step6 + "\n\n",
-    step7 + "\n\n", step8 + "\n\n")
+window.document.write( divider(1) + step1 + divider() , divider(2) + step2 + divider(), divider(3) + step3 + divider(),
+    divider(4) + step4 + divider(), divider(5) + step5 + divider(), divider(6) + step6 + divider(),
+    divider(7) + step7 + divider(), divider(8) + step8 + divider(), divider(9) + step9 + divider(),
+    divider(10) + step10 + divider(), divider(11) + step11 + divider(), divider(12) + step12 + divider(),
+    divider(13) + step13 + divider(),divider(14) + step14 + divider(), divider(15) + step15  + divider()
+)
+// let p = document.createElement('p');
+// p.appendChild(document.createTextNode( divider(1) + step1 + divider() , divider(2) + step2 + divider(), divider(3) + step3 + divider(),
+//     divider(4) + step4 + divider(), divider(5) + step5 + divider(), divider(6) + step6 + divider(),
+//     divider(7) + step7 + divider(), divider(8) + step8 + divider(), divider(9) + step9 + divider(),
+//     divider(10) + step10 + divider(), divider(11) + step11 + divider(), divider(12) + step12 + divider(),
+//     divider(13) + step13 + divider(),divider(14) + step14 + divider(),))
